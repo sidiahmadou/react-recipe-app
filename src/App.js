@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Home from "./Pages/Home";
+import Header from "./Layouts/Header";
+import Footer from "./Layouts/Footer";
+import SearchPage from "./Pages/SearchPage";
+import {Routes, Route} from 'react-router-dom'
+import RecipePage from './Pages/RecipePage'
+import SingleRecipePage from './Pages/SingleRecipePage'
+import FavoritePage from "./Pages/FavoritePage";
+import SingleRecipeSkeleton from "./Components/Skeleton/SingleRecipeSkeleton";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+return (
+    <div >
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/favorite" element={<FavoritePage />}/>
+        <Route path="/recipes" exact element={<RecipePage />}/>
+        <Route path="/recipes/:recipeId" element={<SingleRecipePage />}/>
+      </Routes>
+      <Footer />
+
     </div>
   );
 }
