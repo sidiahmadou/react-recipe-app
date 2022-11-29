@@ -17,7 +17,6 @@ function RecipeItem({props}) {
         likes:props?.aggregateLikes
       }
       dispatch(addFavorite(newFavItem))
-      console.log(favorites)
     }
     else{
       dispatch(deleteFavorite(props.id))

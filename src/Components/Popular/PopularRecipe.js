@@ -33,8 +33,8 @@ function PopularRecipe() {
   if (isSuccess){
     popularContent = (
       <div>
-        <h2 className='font-bold text-xl mb-2'>Popular</h2>
-        <div className='grid grid-rows-1 grid-flow-col gap-2 overflow-x-scroll md:grid-flow-row md:grid-cols-3 lg:grid-cols-5'>
+        <h2 className='font-bold text-xl mb-2 md:text-3xl text-center'>Popular Recipes</h2>
+        <div className='grid grid-rows-1 grid-flow-col gap-4 overflow-x-scroll md:grid-flow-row md:grid-cols-3 lg:grid-cols-5 lg:gap-8'>
           {popularRecipes.recipes.map(item=>{
             return <PopularRecipeItem key={nanoid()} props={item} />})
           }

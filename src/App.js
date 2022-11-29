@@ -6,8 +6,10 @@ import {Routes, Route} from 'react-router-dom'
 import RecipePage from './Pages/RecipePage'
 import SingleRecipePage from './Pages/SingleRecipePage'
 import FavoritePage from "./Pages/FavoritePage";
-import SingleRecipeSkeleton from "./Components/Skeleton/SingleRecipeSkeleton";
+
+
 function App() {
+
 return (
     <div >
       <Header />

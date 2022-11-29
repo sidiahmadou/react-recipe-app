@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import image from '../Assets/cake.png'
-import Header from '../Layouts/Header';
+import {Link} from 'react-router-dom'
 
 function SearchPage() {
     const location = useLocation();
@@ -25,12 +24,14 @@ console.log(searchResult)
                 <div className='p-4 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8'>
                 { searchResult?.results?.slice(0,visibleResult).map(item=>{
                     return (
+                        <Link to={`/recipes/${item?.id}`}>
                         <div className='rounded-2xl overflow-hidden flex flex-col border border-lightGray'>
                             <div className='w-full h-56 relative'>
                                 <img className='w-full h-full object-cover' src={item.image}/>
                             <span className='truncate z-10 py-4 w-full text-center bg-white bg-opacity-30 absolute bottom-0 font-bold'>{item.title}</span>
                             </div>
                         </div>
+                        </Link>
                         )
                     })
                 }

@@ -11,15 +11,15 @@ function Footer() {
     {/* top content */}
     <div className='py-8 px-2 flex flex-col md:flex-row'>
         <div className='md:w-1/2'>
-            <h1 className='font-bold text-xl'>Taste</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut mauris id neque commodo iaculis. Curabitur vel fermentum purus. Orci.</p>
+        <h1 className='text-2xl font-bold'><span className='text-red-400'>Munch</span>Cakes</h1>
+            <p>See the best cake recipes. Trusted recipes for chocolate cake, white cake, banana cakes, and carrot cakes with photos and tips from home cooks.</p>
         </div>
         {/* wrapper */}
         <div className='flex flex-col md:flex-row md:w-1/2 md:justify-around'>
             {/*foot1*/}
             <div >
                 <div onClick={()=>{foot1.current.classList.toggle('hidden')}} className='py-2 flex justify-between border-b border-black md:border-none'>
-                    <h3 className='font-bold'>Taste</h3>
+                    <h3 className='font-bold'>MunchCakes</h3>
                     <BiChevronDown className='md:hidden'/>
                 </div>
                 <div ref={foot1} className='hidden md:block'>
@@ -52,7 +52,7 @@ function Footer() {
 
     {/* bottom content */}
     <div className='flex flex-col-reverse items-center py-4 md:border-t md:border-black md:flex-row md:justify-between'>
-        <h4>2022 taste all right reserved</h4>
+        <h4>2022 MunchCakes all right reserved</h4>
         <div className='flex space-x-4'>
             <AiFillFacebook width={40} color='blue'/>
             <AiFillInstagram width={40} color='red'/>

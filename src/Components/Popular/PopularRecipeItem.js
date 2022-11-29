@@ -28,7 +28,6 @@ function PopularRecipeItem({props}) {
     setFavBtnClicked(prevState=>!prevState)
   }
   
-  const title = props.title.length>50?`${props.title.slice(0,50)}...`:props.title
   return (
     <div className='w-64 md:w-auto md:h-auto bg-transparent border border-lightGray'>
       <Link to={`/recipes/${props.id}`}>
@@ -37,9 +36,9 @@ function PopularRecipeItem({props}) {
             </div>
       </Link>
             <div className='p-2 flex justify-between items-center'>
-              <div className='flex flex-col justify-between'>
+              <div className='w-[80%] flex flex-col justify-between'>
                 <Link to={`/recipes/${props.id}`}>
-                <h3 className='font-bold text-sm'>{title}</h3>
+                <h3 className='truncate font-bold text-sm'>{props.title}</h3>
                 <h3 className='font-bold text-sm'><span className='text-red-300'>{props.aggregateLikes}</span> Likes </h3>
                 </Link>
               </div>

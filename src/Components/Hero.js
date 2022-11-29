@@ -1,18 +1,21 @@
 import React from 'react'
-import cake from '../Assets/cake.png'
 import {useGetHeroRecipeQuery} from '../Features/Api/apiSlice'
 import HeroSkeleton from './Skeleton/HeroSkeleton'
+import img from '../Assets/hero.jpg'
+import img2 from '../Assets/heroImage.jpg'
+import { useSelector } from 'react-redux'
 
 function Hero() {
-  const {data:heroRecipe, isLoading, isSuccess, isError} = useGetHeroRecipeQuery()
+  
+  {/*const {data:heroRecipe, isLoading, isSuccess, isError} = useGetHeroRecipeQuery()
   let heroContent
   if (isError){
     heroContent=(
-      <div className='text-center'>
+      <div className='text-center'>{heroContent}  
           error fetching data
       </div>
     )
-}
+  }
   if (isLoading){
     heroContent = (
       <HeroSkeleton />
@@ -32,11 +35,18 @@ function Hero() {
         </div>
       </div>
     )
-  }
+  }*/}
   
   return (
-    <div>
-        {heroContent}   
+    <div className='relative container max-h-[500px] mx-auto overflow-hidden'>
+        <img className='w-full' src={img2}/>
+        <div className=' absolute top-1/2 -translate-y-1/2 left-10 flex flex-col space-y-4 md:space-y-8'>
+          <h1 className='shadow-2xl font-bold text-white text-5xl md:text-6xl lg:text-7xl'>The best 
+            <span className='block text-red-400'>cake</span>
+            <span className='block '>recipes</span>
+          </h1>
+          <h1 className='shadow-2xl text-red-400 font-bold text-5xl md:text-6xl lg:text-7xl'>Fast - Easy</h1> 
+        </div>
     </div>
   )
 }

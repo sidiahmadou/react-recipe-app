@@ -45,7 +45,7 @@ function SingleRecipePage() {
             {/* instructions & ingredients */}
             <div className='py-4 flex flex-col justify-around space-y-4 md:flex-row md:space-y-0 md:space-x-4'>
                 <div className='md:w-1/3'>
-                    <h3 className='text-xl font-bold'>Ingredients</h3>
+                    <h3 className='text-xl font-bold text-red-400'>Ingredients</h3>
                     <ul className='text-darkGray'>
                         {singleRecipe?.extendedIngredients.map(item=>{
                             return(
@@ -55,7 +55,7 @@ function SingleRecipePage() {
                     </ul>
                 </div>
                 <div className='md:w-2/3'>
-                    <h3 className='text-xl font-bold'>Instructions</h3>
+                    <h3 className='text-xl font-bold text-red-400'>Instructions</h3>
                     <p className='text-darkGray'>
                         {singleRecipe?.instructions}
                     </p>
