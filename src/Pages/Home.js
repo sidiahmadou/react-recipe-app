@@ -5,7 +5,7 @@ import Contact from '../Components/Contact'
 import Footer from '../Layouts/Footer'
 import PopularRecipe from '../Components/Popular/PopularRecipe'
 import Search from '../Components/Search'
-import Layout from '../Components/Layout'
+import Layout from '../Layouts/Layout'
 
 function Home() {
   return (

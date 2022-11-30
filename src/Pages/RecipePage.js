@@ -3,7 +3,7 @@ import RecipeItem from '../Components/RecipeItem'
 import { useGetRecipesQuery } from '../Features/Api/apiSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import RecipeSkeleton from '../Components/Skeleton/RecipeSkeleton'
-import Layout from '../Components/Layout'
+import Layout from '../Layouts/Layout'
 
 function RecipePage() {
   const numberOfRecipe = 100

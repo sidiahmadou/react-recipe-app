@@ -4,7 +4,7 @@ import SimilarRecipe from '../Components/SimilarRecipes/SimilarRecipes'
 import {useGetSingleRecipeQuery} from '../Features/Api/apiSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import SingleRecipeSkeleton from '../Components/Skeleton/SingleRecipeSkeleton'
-import Layout from '../Components/Layout'
+import Layout from '../Layouts/Layout'
 
 function SingleRecipePage() {
     

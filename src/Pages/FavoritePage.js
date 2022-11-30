@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {deleteAllFavorite} from '../Features/FavoriteSlice/FavoriteSlice'
 import FavoriteItem from '../Components/FavoriteItems';
 import { nanoid } from '@reduxjs/toolkit'
-import Layout from '../Components/Layout';
+import Layout from '../Layouts/Layout';
 
 
 function FavoritePage() {

@@ -1,9 +1,5 @@
 import React from 'react'
-import {useGetHeroRecipeQuery} from '../Features/Api/apiSlice'
-import HeroSkeleton from './Skeleton/HeroSkeleton'
-import img from '../Assets/hero.jpg'
-import img2 from '../Assets/heroImage.jpg'
-import { useSelector } from 'react-redux'
+import heroImage from '../Assets/heroImage.jpg'
 
 function Hero() {
   
@@ -39,7 +35,7 @@ function Hero() {
   
   return (
     <div className='relative container max-h-[500px] mx-auto overflow-hidden'>
-        <img className='w-full' src={img2}/>
+        <img className='w-full' src={heroImage}/>
         <div className=' absolute top-1/2 -translate-y-1/2 left-10 flex flex-col space-y-4 md:space-y-8'>
           <h1 className='shadow-2xl font-bold text-white text-5xl md:text-6xl lg:text-7xl'>The best 
             <span className='block text-red-400'>cake</span>

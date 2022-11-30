@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../Layouts/Footer'
-import Navigation from '../Layouts/Navigation'
+import Footer from './Footer'
+import Navigation from './Navigation'
 
 function Layout({children}) {
   return (
