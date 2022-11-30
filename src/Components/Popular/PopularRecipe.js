@@ -4,14 +4,15 @@ import {useGetRecipesQuery} from '../../Features/Api/apiSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import PopularRecipeSkeleton from '../Skeleton/PopularRecipeSkeleton'
 
+
 function PopularRecipe() {
+
   const numberOfRecipe = 10
   const {
     data:popularRecipes,
     isSuccess,
     isLoading,
     isError, 
-    error
   } = useGetRecipesQuery(numberOfRecipe)
 
   let popularContent
@@ -26,7 +27,7 @@ function PopularRecipe() {
   if (isLoading) {
     popularContent = (
         <div className='grid grid-rows-1 grid-flow-col gap-2 overflow-x-scroll md:grid-flow-row md:grid-cols-3 lg:grid-cols-5'>
-          {array.map(item=><PopularRecipeSkeleton />)}
+          {array.map(item=><PopularRecipeSkeleton key={nanoid()}/>)}
         </div>
       )}
 

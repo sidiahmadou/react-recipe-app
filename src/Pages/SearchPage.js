@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import Layout from '../Components/Layout';
 
 function SearchPage() {
     const location = useLocation();
@@ -11,9 +12,9 @@ function SearchPage() {
     const handleClick = ()=>{
         setVisibleResult(prevState=>prevState+itemToDisplay)
     }
-console.log(searchResult)
+    
   return (
-    <div>
+    <Layout>
         <div className='py-16 container mx-auto'>
             <div className='px-4 text-xl font-bold'>
                 <span>Search Result : {searchResult.length} recipes</span>
@@ -43,7 +44,7 @@ console.log(searchResult)
                 <div className='flex justify-center py-4'><button onClick={()=>handleClick()} className='py-2 px-6 border border-lightGray hover:bg-lightGray'>Load more</button></div>
             }
         </div>
-    </div>
+    </Layout>
   )
 }
 

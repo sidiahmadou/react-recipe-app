@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import image from '../Assets/cake.png'
-import {AiOutlineSearch, AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
-
 import {useAutoCompleteRecipeSearchQuery} from '../Features/Api/apiSlice'
 
+
 function Search() {
+
     //const [searchResult, setSearchResult] = useState(resultData)
     const [searchText, setSearchText] = useState([])
     const handleChange = (event) =>{
         setSearchText(event.target.value)
     }
     const {data:searchResult, isLoading, isSuccess, isError} = useAutoCompleteRecipeSearchQuery(searchText)    
-    console.log(searchText)
+
     let searchContent
     if (isLoading){
         searchContent = (
@@ -21,6 +21,7 @@ function Search() {
             </div>
         )
     }
+
     if (isSuccess ){
        // console.log(searchResult.results)
         //select 4 items from result and map over to display

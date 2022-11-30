@@ -1,6 +1,4 @@
 import Home from "./Pages/Home";
-import Header from "./Layouts/Header";
-import Footer from "./Layouts/Footer";
 import SearchPage from "./Pages/SearchPage";
 import {Routes, Route} from 'react-router-dom'
 import RecipePage from './Pages/RecipePage'
@@ -11,8 +9,6 @@ import FavoritePage from "./Pages/FavoritePage";
 function App() {
 
 return (
-    <div >
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchPage />} />
@@ -20,9 +16,6 @@ return (
         <Route path="/recipes" exact element={<RecipePage />}/>
         <Route path="/recipes/:recipeId" element={<SingleRecipePage />}/>
       </Routes>
-      <Footer />
-
-    </div>
   );
 }
 

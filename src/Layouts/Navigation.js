@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
-import {BiFoodMenu} from 'react-icons/bi'
 
 
-function Header() {
+function Navigation() {
+
     const [menuClicked, setMenuClicked] = useState(false)
     const navbar = useRef()
     const handleClick = ()=>{
@@ -14,7 +14,7 @@ function Header() {
   return (
     <nav className='py-4 relative'>
         <div className='container px-2 mx-auto flex justify-between items-center'>
-            <a href='#'>
+            <a href='/#'>
                 <h1 className='text-2xl font-bold'><span className='text-red-400'>Munch</span>Cakes</h1>
             </a>
             <div ref={navbar} className='hidden md:block'>
@@ -42,4 +42,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Navigation

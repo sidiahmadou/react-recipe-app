@@ -2,8 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import image from '../../Assets/cake.png'
 
+
 function SimilarRecipeItem({props}) {
-    console.log(props)
+  
     return (
         <Link to={`/recipes/${props.id}`}>
           <div className='w-60 flex px-2 space-x-2 overflow-hidden items-center border border-lightGray'>

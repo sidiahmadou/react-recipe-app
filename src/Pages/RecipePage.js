@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import RecipeItem from '../Components/RecipeItem'
 import { useGetRecipesQuery } from '../Features/Api/apiSlice'
 import { nanoid } from '@reduxjs/toolkit'
-import Header from '../Layouts/Header'
 import RecipeSkeleton from '../Components/Skeleton/RecipeSkeleton'
+import Layout from '../Components/Layout'
 
 function RecipePage() {
   const numberOfRecipe = 100
@@ -36,7 +36,7 @@ function RecipePage() {
         }
       
         return (
-          <div>
+          <Layout>
             <div className='container mx-auto px-2 py-8 md:px-0'>
                 <div className='grid grid-cols-2 grid-flow-row gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8'>
                 {recipesContent}
@@ -47,7 +47,7 @@ function RecipePage() {
                 <div className='flex justify-center py-4'><button onClick={()=>handleClick()} className='py-2 px-6 border border-lightGray hover:bg-lightGray'>Load more</button></div>
             }
       
-          </div>
+          </Layout>
       
         )
 }

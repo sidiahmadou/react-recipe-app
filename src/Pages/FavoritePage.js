@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import {MdOutlineFavorite} from 'react-icons/md'
 import {FaTrashAlt} from 'react-icons/fa'
-import Header from '../Layouts/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import {deleteFavorite, deleteAllFavorite} from '../Features/FavoriteSlice/FavoriteSlice'
+import {deleteAllFavorite} from '../Features/FavoriteSlice/FavoriteSlice'
+import FavoriteItem from '../Components/FavoriteItems';
+import { nanoid } from '@reduxjs/toolkit'
+import Layout from '../Components/Layout';
+
 
 function FavoritePage() {
-    const favorite = useSelector(state=>state.favorite)
+
     const {favorites} = useSelector(state=>state.favorite)
+
     console.log(favorites)
     
     const dispatch = useDispatch()
 
-    const handleDeleteFav = (id)=>{
-        dispatch(deleteFavorite(id))
-    }
     const handleDeleteAllFav = ()=>{
         dispatch(deleteAllFavorite())
     }
@@ -26,35 +27,27 @@ function FavoritePage() {
     }
 
   return (
-    <div >
-        <Header />
-        <div className='py-16 container mx-auto'>
+    <Layout>
+        <div className='container mx-auto'>
             {/* favorite header*/}
             <div className='flex justify-between p-4 border-b border-lightGray'>
                 <div className='flex space-x-4 items-center'>
                     <MdOutlineFavorite color='white' size={30} className='p-2 bg-orange rounded-full' />
                     <span className='text-xl font-bold'>Favorites</span>
-                    <span className='text-sm'>{favorite.length} recipes </span>
+                    <span className='text-sm'>{favorites.length} recipes </span>
                 </div>
-                <button onClick={()=>handleDeleteAllFav()} className='inline-block'>
-                    <FaTrashAlt size={20} color='orange'/> Delete all
+                <button onClick={()=>handleDeleteAllFav()} className='flex flex-col items-center'>
+                    <FaTrashAlt size={20} color='orange'/>
+                    <span>Delete all</span>
                 </button>
             </div>
             
             {/* select 16 items from result and map over to display */}
-            {!!favorite.length?
+            {!!favorites.length?
                 (<div className='p-4 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
-                { favorite.slice(0,visible).map(item=>{
+                { favorites.slice(0,visible).map(item=>{
                     return (
-                        <div className='flex p-4 flex-col bg-red-300'>
-                                <div className='w-36 h-36'>
-                                    <img src={item.image}/>
-                                </div>
-                                <span>*****</span>
-                                <span className='font-bold'>{item.title}</span>
-                                
-                                <button className='p-2 bg-veryLightGray rounded-full z-10 self-end'><FaTrashAlt onClick={()=>handleDeleteFav(item.id)} size={16} /></button>
-                            </div>
+                        <FavoriteItem key={nanoid()} props={item} />
                         )
                     })
                 }
@@ -65,11 +58,11 @@ function FavoritePage() {
             }
             {/* display load more btn if remaining items to display is more than 0 */}
             {
-                (favorite.length-visible>=0) &&  
+                (favorites.length-visible>=0) &&  
                 <div className='flex justify-center py-4'><button onClick={()=>handleClick()} className='py-2 px-6 border border-lightGray hover:bg-lightGray'>Load more</button></div>
             }
         </div>
-    </div>
+    </Layout>
   )
 }
 

@@ -13,9 +13,9 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
         <ApiProvider api={apiSlice}>
-    <Provider store={store}>
-          <App />
-    </Provider>
+          <Provider store={store}>
+            <App />
+          </Provider>
         </ApiProvider>
       </BrowserRouter>
   </React.StrictMode>

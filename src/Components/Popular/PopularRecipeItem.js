@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {addFavorite, deleteFavorite} from '../../Features/FavoriteSlice/FavoriteSlice'
 import {MdFavorite} from 'react-icons/md'
 
 function PopularRecipeItem({props}) {
+
   const [favBtnClicked, setFavBtnClicked] = useState(false)
-  const fav = useSelector(state=>state.favorite)
   const dispatch = useDispatch()
 
   useEffect(()=>{

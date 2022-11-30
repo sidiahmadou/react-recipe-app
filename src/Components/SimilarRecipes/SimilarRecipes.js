@@ -2,7 +2,10 @@ import React from 'react'
 import SimilarRecipeItem from './SimilarRecipeItem'
 import {useGetSimilarRecipeQuery} from '../../Features/Api/apiSlice'
 import { nanoid } from '@reduxjs/toolkit'
+
+
 function SimilarRecipes({recipeId}) {
+
     const {data:similarRecipes, isLoading, isSuccess} = useGetSimilarRecipeQuery(recipeId)
    
     let similarRecipesContent

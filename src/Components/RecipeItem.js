@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
 import {addFavorite, deleteFavorite} from '../Features/FavoriteSlice/FavoriteSlice'
 import {MdFavorite} from 'react-icons/md'
 
+
 function RecipeItem({props}) {
+
   const [favBtnClicked, setFavBtnClicked] = useState(false)
-  const {favorites} = useSelector(state=>state.favorite)
   const dispatch = useDispatch()
   useEffect(()=>{
     if (favBtnClicked){
@@ -37,7 +38,7 @@ function RecipeItem({props}) {
               <div className='w-[80%] flex flex-col justify-between'>
                 <Link to={`/recipes/${props.id}`}>
                 <h3 className='truncate font-bold text-sm text-white'>{props.title}</h3>
-                <h3 className='font-bold text-sm'><span className='text-red-300'>{props.aggregateLikes}</span> Likes </h3>
+                <h3 className='font-bold text-red-300 text-sm'><span className='text-red-300'>{props.aggregateLikes}</span> Likes </h3>
                 </Link>
               </div>
               <button className='p-2 bg-veryLightGray rounded-full z-10 self-end'><MdFavorite color={favBtnClicked?'red':'black'} onClick={()=>handleFavBtnClick()} size={16} /></button>

@@ -2,13 +2,13 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import SimilarRecipe from '../Components/SimilarRecipes/SimilarRecipes'
 import {useGetSingleRecipeQuery} from '../Features/Api/apiSlice'
-import Header from '../Layouts/Header'
+import { nanoid } from '@reduxjs/toolkit'
 import SingleRecipeSkeleton from '../Components/Skeleton/SingleRecipeSkeleton'
+import Layout from '../Components/Layout'
 
 function SingleRecipePage() {
     
     const {recipeId} = useParams()
-    console.log(recipeId)
     const {data:singleRecipe, isLoading, isSuccess, isError, error} = useGetSingleRecipeQuery(recipeId)
     let singleRecipeContent
     if (isError){
@@ -18,11 +18,10 @@ function SingleRecipePage() {
     }
     if (isLoading){
         singleRecipeContent = (
-            <SingleRecipeSkeleton />
+            <SingleRecipeSkeleton key={nanoid()}/>
         )
     }
     if (isSuccess){
-        console.log(singleRecipe)
         singleRecipeContent = (
             <div>
                 <div className='py-4 border-b border-lightGray'>
@@ -62,16 +61,16 @@ function SingleRecipePage() {
                 </div>
             </div>
             {/* similar recipes */}
-            <SimilarRecipe recipeId={recipeId}/>
+            <SimilarRecipe key={nanoid()} recipeId={recipeId}/>
         </div>
         )
     }
   return (
-    <div>
+    <Layout>
         <div className='px-2 container mx-auto'>
             {singleRecipeContent}
         </div>
-    </div>
+    </Layout>
 
   )
 }
